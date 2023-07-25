@@ -52,23 +52,101 @@ pip install venv
   - when using Miniconda I also recommend to create separate environments for
     each project and avoid using the ~base~ environment which hosts the package
     manager itself
-* STRT Using the interactive command line (REPL)
+    1. create a virtual environment with the python version of your choice
+        #+begin_src bash
+    conda create -n myenv python=3.10
+        #+end_src
+    2. create your project directory and move into it
+    3. activate your conda environment
+        #+begin_src bash
+conda activate myenv
+        #+end_src
+* DONE Using the interactive command line (REPL)
 Python provides a basic interactive command line to start with, I recommend to
 play with it and possibly with all of its extensions.
 
 The command line reads the python expressions or statements, evaluates or
 executes them respectively and prints the result; these interactive command
-lines are called also Read, Eval, Print Loops and were available since the LISP
-language.
+lines are called also Read, Eval, Print Loops (REPL) and were available since
+the LISP language.
 
+to start the python REPL open your command line, move into your project,
+activate it and typ
+#+begin_src bash
+python
+#+end_src
 
+this will print some version information and the basic python prompt ~>>>~
+
+you can type here python expressions and also whole programs (which is not the
+most convenient way); it also provide you with a very fast feedback.
+
+In time many extensions to the python CLI where developed which have some
+advantages, here is a list of some:
+- ipython
+- ptipython (which adds some CLI and editing functionalities)
+- jupyter notebook (web powered extension)
+- jupyter lab (even more powerful)
 * TODO Numbers
+the python interpreter reads the code and translate it into bytecode -- a lower
+level language which is then executed.
+
+This translation process consists in reading code text and create data
+structures which represents data objects and actions to be performed in memory
+
+Data can be read from formats which are called literals: there can be different
+ways to represent the same object.
+
+Here we will go through some of the numeric formats and their object representation
+
+Try to type these literals into the CLI and python will return a "canonical"
+representation of the equivalent numeric object
 ** TODO Integers
-integer values can be represented in multiple ways
+integer values can be represented in multiple ways:
+#+begin_src python
+# decimal
+1000000
+# decimal with underscore for readability
+1_000_000
+# hexadecimal
+0xAA19
+# binary
+0b1001010
+# octal
+0o675
+#+end_src
 ** TODO Floats
+floating point values can be represented with floating point or scientific format
+#+begin_src python
+# floating point
+-123.4
+# scientific
+-1.234e2
+#+end_src
 ** TODO Complex
+python supports complex numbers literals with cartesian representation
+#+begin_src python
+(1*2j)
+# also floating point can be used in the cartesian format
+(1.0+2.0j)
+#+end_src
 * TODO Strings
 ** TODO Text strings
+string literals are surrounded by single quotes ~'~ or double quotes ~"~
+#+begin_src python
+"hi mom"
+'hi mom'
+#+end_src
+** TODO Triple quote
+text in a string can be surrounded by triple quotes ~"""~ or ~'''~, this allows
+to introduce multiline string literals
+#+begin_src pyton
+"""hi
+mom"""
+#+end_src
+when typing multiline expressions the CLI prompt switch to ~...~
+** TODO Escaping and Unicode
+** TODO Raw strings
 ** TODO Binary strings
 * TODO Booleans and None
 
