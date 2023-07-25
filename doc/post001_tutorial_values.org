@@ -1,0 +1,77 @@
+#+BLOG: noise on the net
+#+POSTID: 149
+#+DATE: [2022-11-20 dom 20:06]
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil
+#+CATEGORY: Language learning
+#+TAGS: Python
+#+DESCRIPTION: how are values created in the source code of python, how to create basic expressions and use basic containers
+#+title: Python tutorial: literals values operators and expressions
+This post is the first of a series; I'd like to share some python knowledge
+starting from very basic information and avoiding forward references as much as
+possible.
+
+As python evolves I'll try to keep up with latest updates, I'll be treating
+python 3 only. This post was started on Saturday, November 19th 2022.
+
+I reccommend to use the basic python interactive command line to really have an
+immediate feedback of what python actually does.
+
+Of course there are more convenient interactive environments, but all of them
+introduce some complexity which makes it difficult to have a clear mental model
+of the language
+* DONE Installing
+There are two main ways I reccommend to install python
+- from the python site https://www.python.org/
+  - python basic package manager is ~pip~ you can use it from any command line of your operative system
+  - when using base python I recommend to create independent [[https://docs.python.org/3/library/venv.html][virtual
+    environments]] for each project, this will help you keep track of the packages
+    you are using and also avoid issues with multiple package versions; the
+    following commands refer to a linux bash command line, you can find windows
+    equivalent in the [[https://docs.python.org/3/library/venv.html#creating-virtual-environments][virtual environment documentation]]
+    1. install venv with the following command
+        #+begin_src bash
+pip install venv
+        #+end_src
+    2. create a project directory and change your current directory into it
+        #+begin_src bash
+    mkdir myproject
+    cd myproject
+        #+end_src
+    3. create a virtual environment in the project directory
+        #+begin_src bash
+    python -m venv .
+        #+end_src
+    4. activate it
+        #+begin_src bash
+    source bin/activate
+        #+end_src
+- using the miniconda from Continuum https://docs.conda.io/en/latest/miniconda.html
+  - this package and environment manager allows you to easily create independent
+    projects, keeping separate package environments as well as using separate
+    python interpreters
+  - when using Miniconda I also recommend to create separate environments for
+    each project and avoid using the ~base~ environment which hosts the package
+    manager itself
+* STRT Using the interactive command line (REPL)
+Python provides a basic interactive command line to start with, I recommend to
+play with it and possibly with all of its extensions.
+
+The command line reads the python expressions or statements, evaluates or
+executes them respectively and prints the result; these interactive command
+lines are called also Read, Eval, Print Loops and were available since the LISP
+language.
+
+
+* TODO Numbers
+** TODO Integers
+integer values can be represented in multiple ways
+** TODO Floats
+** TODO Complex
+* TODO Strings
+** TODO Text strings
+** TODO Binary strings
+* TODO Booleans and None
+
+* TODO List and Tuple
+
+* TODO Dictionary and Set
