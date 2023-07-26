@@ -146,7 +146,30 @@ mom"""
 #+end_src
 when typing multiline expressions the CLI prompt switch to ~...~
 ** TODO Escaping and Unicode
+text strings include special characters which were used to control text
+representation: e.g. newline (ASCII 10) and carriage return (ASCII 13).
+
+These characters are represented by a backward slash ~\~ followed by
+1. a character e.g. newline is ~\n~ and carriage return is ~\r~
+2. an octal number e.g. ~\012~
+3. an hexadecimal number e.g. ~\x0A~
+4. an unicode number below 0x10000 ~\u000A~
+5. a 32 bit unicode number ~\U0000000A~
+
+some printable character may require escape:
+1. the forward slash itself ~\\~
+2. quotes when identical with the surrounding quotes ~\'~ and ~\"~
+
+See more details also [[https://en.wikipedia.org/wiki/Escape_sequences_in_C][here]]
 ** TODO Raw strings
+by prefixing the letter ~r~ to the first quote, escaping characters will be
+ignored and treated literally: these are called raw strings
+
+Forward slash appear in a couple of situation:
+1. in windows paths (here I will suggest better options later) e.g. ~c:\TEMP~
+2. in regular expressions character classes e.g. ~\d~
+
+In this case raw strings can be helpful
 ** TODO Binary strings
 * TODO Booleans and None
 
