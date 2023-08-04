@@ -29,20 +29,20 @@ There are two main ways I reccommend to install python
     following commands refer to a linux bash command line, you can find windows
     equivalent in the [[https://docs.python.org/3/library/venv.html#creating-virtual-environments][virtual environment documentation]]
     1. install venv with the following command
-        #+begin_src bash
+        #+begin_src bash :noeval
 pip install venv
         #+end_src
     2. create a project directory and change your current directory into it
-        #+begin_src bash
+        #+begin_src bash :noeval
     mkdir myproject
     cd myproject
         #+end_src
     3. create a virtual environment in the project directory
-        #+begin_src bash
+        #+begin_src bash :noeval
     python -m venv .
         #+end_src
     4. activate it
-        #+begin_src bash
+        #+begin_src bash :noeval
     source bin/activate
         #+end_src
 - using the miniconda from Continuum https://docs.conda.io/en/latest/miniconda.html
@@ -53,12 +53,12 @@ pip install venv
     each project and avoid using the ~base~ environment which hosts the package
     manager itself
     1. create a virtual environment with the python version of your choice
-        #+begin_src bash
+        #+begin_src bash :noeval
     conda create -n myenv python=3.10
         #+end_src
     2. create your project directory and move into it
     3. activate your conda environment
-        #+begin_src bash
+        #+begin_src bash :noeval
 conda activate myenv
         #+end_src
 * DONE Using the interactive command line (REPL)
@@ -72,7 +72,7 @@ the LISP language.
 
 to start the python REPL open your command line, move into your project,
 activate it and typ
-#+begin_src bash
+#+begin_src bash :noeval
 python
 #+end_src
 
@@ -103,7 +103,7 @@ Try to type these literals into the CLI and python will return a "canonical"
 representation of the equivalent numeric object
 ** TODO Integers
 integer values can be represented in multiple ways:
-#+begin_src python
+#+begin_src python :noeval
 # decimal
 1000000
 # decimal with underscore for readability
@@ -115,6 +115,7 @@ integer values can be represented in multiple ways:
 # octal
 0o675
 #+end_src
+
 ** TODO Floats
 floating point values can be represented with floating point or scientific format
 #+begin_src python
@@ -130,13 +131,48 @@ python supports complex numbers literals with cartesian representation
 # also floating point can be used in the cartesian format
 (1.0+2.0j)
 #+end_src
+** Operator and expressions on numbers
+ordinary infix operators are available for all numeric types, with the ordinary
+precedence rules.
+
+Precedence can be adjusted by means of parethesis as usual.
+
+#+begin_src python
+(2 + 3) * 4 # 20
+3 / 4 # 0.75 promoted to float
+3 // 4 # 0 integer division
+3 ** 4 # 81 integer power
+(2+3j) * (2-3j) # 25 complex product
+#+end_src
+
+for integer numbers also binary operators are useful:
+
+#+begin_src python
+0b1001 | 0b0101 # yields 0b1101 or 13
+0b1001 & 0b1001 # yields 0b0001 or 1
+0b1001 ^ 0b0101 # yields 0b1100 or 12
+~ 0b0101 # yields 0b1010 or 10
+#+end_src
+
+integer numbers also have modulo operator
+#+begin_src python
+13 % 4 # yields 1
+#+end_src
+** Basic functions
 * TODO Strings
+Strings are data sequances mostly used for human readable text; python strings
+are of two kind:
+1. Unicode text strings: each readable character can be represented by one or more bytes
+2. Binary strings: each character will be represented by exactly one bytes,
+   non-readable bytes by escaped hexadecimal sequences of two digits
 ** TODO Text strings
 string literals are surrounded by single quotes ~'~ or double quotes ~"~
 #+begin_src python
 "hi mom"
 'hi mom'
 #+end_src
+when the python REPL returns the canonical representation it uses only the
+single quote
 ** TODO Triple quote
 text in a string can be surrounded by triple quotes ~"""~ or ~'''~, this allows
 to introduce multiline string literals
@@ -151,10 +187,11 @@ representation: e.g. newline (ASCII 10) and carriage return (ASCII 13).
 
 These characters are represented by a backward slash ~\~ followed by
 1. a character e.g. newline is ~\n~ and carriage return is ~\r~
-2. an octal number e.g. ~\012~
-3. an hexadecimal number e.g. ~\x0A~
-4. an unicode number below 0x10000 ~\u000A~
-5. a 32 bit unicode number ~\U0000000A~
+2. a three digit octal number representing an ASCII character e.g. ~\012~
+3. a two digit hexadecimal number e.g. ~\x0A~
+4. an unicode number below 0x10000 ~\u000A~, → ~\u2192~
+5. a 32 bit unicode number ~\U0000000A~, → ~\U00002192~
+6. a unicode name ~"\N{RIGHTWARDS ARROW}"~
 
 some printable character may require escape:
 1. the forward slash itself ~\\~
@@ -167,12 +204,130 @@ ignored and treated literally: these are called raw strings
 
 Forward slash appear in a couple of situation:
 1. in windows paths (here I will suggest better options later) e.g. ~c:\TEMP~
-2. in regular expressions character classes e.g. ~\d~
+2. in regular expressions character classes e.g. ~\d~ the class of digit
+   characters
 
 In this case raw strings can be helpful
 ** TODO Binary strings
+By prefixing a quote with the ~b~ letter the string will be interpreted as a
+binary sequence.
+
+This is useful when
+- reading or writing to an external device, possibly connected through a serial
+- reading or writing binary files
+
+e.g. the following 4 bytes are the "magic number" at the beginning of java class
+file format
+#+begin_src python
+b"\xCA\xFE\xBA\xBE"
+#+end_src
+** TODO Operators on strings
+strings can use sum and multiplication as following
+#+begin_src python
+"hello " + "world" # yields hello world
+"hello " * 3 # yields "hello hello hello "
+#+end_src
+
+I will introduce more operators and activities on strings later
 * TODO Booleans and None
+there are a couple of predefined data types with a limited number of values
+which play a fundamental role in python
+** TODO None
+the None type contains just the ~None~ value
 
-* TODO List and Tuple
+This can be seen as an equivalent of a NULL pointer, its actual usage will be
+shown later
+** TODO Boolean values and operators
+Boolean type has exactly two values, boolean shortcut operators are written as
+words and have the usual precedence rules
+#+begin_src python
+True
+False
+True and False
+True or False
+not True
+#+end_src
+** TODO Triple operator and truth values
+the triple operator is composed of
+- the value to be returned if the clause is true
+- the boolean clause
+- the value to be returned if the clause is false
+#+begin_src python
+"there is sunshine" if True else "it rains" # returns "there is sunshine"
+-1 if False else 42 # yields 42
+#+end_src
 
-* TODO Dictionary and Set
+the clause may contain also non boolean values (a deprecated practice)
+
+In python the following objects are false
+| 0    | integer or floating point number 0 |
+| None | the None object                    |
+| ""   | the empty string                   |
+
+I will add more falsy values later. In contrast the following objects are
+considered "True"
+
+|    1 | any integer, float or complex number different from 0 |
+| "hi" | any non-empty string                                  |
+
+I don't recommend using this way to evaluate clauses as they may be less
+readable.
+* TODO Lists and Tuples (and Strings, again)
+** TODO List literals
+list can be constructed with the square parens; they can hold objects
+of different kinds and even lists; all objects are separated by a comma
+#+begin_src python
+[] # an empty list
+["hi"] # a list with just one element
+[1,"ho!",[3.5, (0+1j)]] # a nested list with multiple elements
+#+end_src
+** TODO List access
+list elements can be accessed via the square brackets operator.
+
+List indices are 0-based, i.e. the first element has index 0, the second has
+index 1 etc.
+
+Lists can be accessed backward with negative indices
+
+When the index exceed the list size an error is generated
+#+begin_src python
+["hi", "mom"][1] # returns "mom"
+["thanks", "for", "all", "the", "fish"][-2] # returns "the"
+[][1] # throws an exception
+#+end_src
+** TODO Splices
+When applied to lists, the square bracket operator accepts splices, returning
+sublists.
+
+A splice has two possible forms
+- start : stop
+- start : stop : step
+
+Where start, stop and step are integers.
+
+The first represent the first index to be taken, the second the first excluded
+index and the step represent the periodicity of the extraction
+
+All three elements are optional, when missing
+- start will point to the beginning of the string
+- end will point to the end of the string
+- step will be 1
+
+Negative steps are allowed: switching the meaning of start and stop
+#+begin_src python
+["the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"][1:4]
+["the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"][1:6:2]
+["the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"][:4]
+["the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"][4::2]
+["the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"][-3:6:2]
+#+end_src
+** TODO Accessing strings with index and splice
+** TODO Tuple literals
+** TODO Oprators on lists and tuples
+** TODO St4::2:g formatting with modulo and tuples
+* TODO Dict-3o6:2ary and Set (and more Strings)
+** TODO Set iterals
+** TODO Dict4::2:ary literals
+** TODO Dict-3o6:2ary access
+** TODO Set an dictionary operators
+** TODO String4::2:rmatting with modulo and dictionar-3e:2
