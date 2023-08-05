@@ -5,7 +5,13 @@
 #+CATEGORY: Language learning
 #+TAGS: Python
 #+DESCRIPTION: how are values created in the source code of python, how to create basic expressions and use basic containers
-#+title: Python tutorial: literals values operators and expressions
+#+title: Python tutorial: literals, values, operators and expressions
+
+https:/noise/wp-content/uploads/2023/08/david-clode-5uU8HSpfwkI-unsplash-2-scaled.jpg
+
+Photo by [[https://unsplash.com/@davidclode?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText][David Clode]] on [[https://unsplash.com/photos/5uU8HSpfwkI?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText][Unsplash]]
+
+
 This post is the first of a series; I'd like to share some python knowledge
 starting from very basic information and avoiding forward references as much as
 possible.
@@ -19,7 +25,7 @@ immediate feedback of what python actually does.
 Of course there are more convenient interactive environments, but all of them
 introduce some complexity which makes it difficult to have a clear mental model
 of the language
-* DONE Installing
+*  Installing
 There are two main ways I reccommend to install python
 - from the python site https://www.python.org/
   - python basic package manager is ~pip~ you can use it from any command line of your operative system
@@ -61,7 +67,7 @@ pip install venv
         #+begin_src bash :noeval
 conda activate myenv
         #+end_src
-* DONE Using the interactive command line (REPL)
+*  Using the interactive command line (REPL)
 Python provides a basic interactive command line to start with, I recommend to
 play with it and possibly with all of its extensions.
 
@@ -87,7 +93,7 @@ advantages, here is a list of some:
 - ptipython (which adds some CLI and editing functionalities)
 - jupyter notebook (web powered extension)
 - jupyter lab (even more powerful)
-* TODO Numbers
+*  Numbers
 the python interpreter reads the code and translate it into bytecode -- a lower
 level language which is then executed.
 
@@ -101,7 +107,7 @@ Here we will go through some of the numeric formats and their object representat
 
 Try to type these literals into the CLI and python will return a "canonical"
 representation of the equivalent numeric object
-** TODO Integers
+**  Integers
 integer values can be represented in multiple ways:
 #+begin_src python :noeval
 # decimal
@@ -116,7 +122,7 @@ integer values can be represented in multiple ways:
 0o675
 #+end_src
 
-** TODO Floats
+**  Floats
 floating point values can be represented with floating point or scientific format
 #+begin_src python
 # floating point
@@ -124,7 +130,7 @@ floating point values can be represented with floating point or scientific forma
 # scientific
 -1.234e2
 #+end_src
-** TODO Complex
+**  Complex
 python supports complex numbers literals with cartesian representation
 #+begin_src python
 (1*2j)
@@ -159,13 +165,13 @@ integer numbers also have modulo operator
 13 % 4 # yields 1
 #+end_src
 ** Basic functions
-* TODO Strings
+*  Strings
 Strings are data sequances mostly used for human readable text; python strings
 are of two kind:
 1. Unicode text strings: each readable character can be represented by one or more bytes
 2. Binary strings: each character will be represented by exactly one bytes,
    non-readable bytes by escaped hexadecimal sequences of two digits
-** TODO Text strings
+**  Text strings
 string literals are surrounded by single quotes ~'~ or double quotes ~"~
 #+begin_src python
 "hi mom"
@@ -173,7 +179,7 @@ string literals are surrounded by single quotes ~'~ or double quotes ~"~
 #+end_src
 when the python REPL returns the canonical representation it uses only the
 single quote
-** TODO Triple quote
+**  Triple quote
 text in a string can be surrounded by triple quotes ~"""~ or ~'''~, this allows
 to introduce multiline string literals
 #+begin_src pyton
@@ -181,7 +187,7 @@ to introduce multiline string literals
 mom"""
 #+end_src
 when typing multiline expressions the CLI prompt switch to ~...~
-** TODO Escaping and Unicode
+**  Escaping and Unicode
 text strings include special characters which were used to control text
 representation: e.g. newline (ASCII 10) and carriage return (ASCII 13).
 
@@ -198,7 +204,7 @@ some printable character may require escape:
 2. quotes when identical with the surrounding quotes ~\'~ and ~\"~
 
 See more details also [[https://en.wikipedia.org/wiki/Escape_sequences_in_C][here]]
-** TODO Raw strings
+**  Raw strings
 by prefixing the letter ~r~ to the first quote, escaping characters will be
 ignored and treated literally: these are called raw strings
 
@@ -208,7 +214,7 @@ Forward slash appear in a couple of situation:
    characters
 
 In this case raw strings can be helpful
-** TODO Binary strings
+**  Binary strings
 By prefixing a quote with the ~b~ letter the string will be interpreted as a
 binary sequence.
 
@@ -221,7 +227,7 @@ file format
 #+begin_src python
 b"\xCA\xFE\xBA\xBE"
 #+end_src
-** TODO Operators on strings
+**  Operators on strings
 strings can use sum and multiplication as following
 #+begin_src python
 "hello " + "world" # yields hello world
@@ -229,15 +235,15 @@ strings can use sum and multiplication as following
 #+end_src
 
 I will introduce more operators and activities on strings later
-* TODO Booleans and None
+*  Booleans and None
 there are a couple of predefined data types with a limited number of values
 which play a fundamental role in python
-** TODO None
+**  None
 the None type contains just the ~None~ value
 
 This can be seen as an equivalent of a NULL pointer, its actual usage will be
 shown later
-** TODO Boolean values and operators
+**  Boolean values and operators
 Boolean type has exactly two values, boolean shortcut operators are written as
 words and have the usual precedence rules
 #+begin_src python
@@ -247,7 +253,7 @@ True and False
 True or False
 not True
 #+end_src
-** TODO Triple operator and truth values
+**  Triple operator and truth values
 the triple operator is composed of
 - the value to be returned if the clause is true
 - the boolean clause
@@ -272,8 +278,8 @@ considered "True"
 
 I don't recommend using this way to evaluate clauses as they may be less
 readable.
-* TODO Lists and Tuples (and Strings, again)
-** TODO List literals
+*  Lists and Tuples (and Strings, again)
+**  List literals
 list can be constructed with the square parens; they can hold objects
 of different kinds and even lists; all objects are separated by a comma
 #+begin_src python
@@ -281,7 +287,7 @@ of different kinds and even lists; all objects are separated by a comma
 ["hi"] # a list with just one element
 [1,"ho!",[3.5, (0+1j)]] # a nested list with multiple elements
 #+end_src
-** TODO List access
+**  List access
 list elements can be accessed via the square brackets operator.
 
 List indices are 0-based, i.e. the first element has index 0, the second has
@@ -295,7 +301,7 @@ When the index exceed the list size an error is generated
 ["thanks", "for", "all", "the", "fish"][-2] # returns "the"
 [][1] # throws an exception
 #+end_src
-** TODO Splices
+**  Splices
 In order to show some result, starting from this paragraph I will use the
 ~print~ function. A more detailed description of functions will be presented
 later.
@@ -333,7 +339,7 @@ print(["the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"][-3
 : ['jumps', 'the', 'dog']
 : ['the', 'dog']
 
-** TODO Accessing strings with index and splice
+**  Accessing strings with index and splice
 index and splice work in the very same way with strings as they do with lists
 
 #+begin_src python :eval never-export :results output :exports both
@@ -351,7 +357,7 @@ print("abcdefghijklmno"[2:8:2])
 : klmno
 : ceg
 
-** TODO Tuple literals
+**  Tuple literals
 Tuple can contain ordered sequences of various kinds of objects, as list do
 
 Tuple literal constructor is the comma, but as the empty tuple is represented by
@@ -371,7 +377,7 @@ print((True,"hi",3.14159,0+1j)[:3])
 : 3.14159
 : (True, 'hi', 3.14159)
 
-** DONE Operators on lists and tuples
+**  Operators on lists and tuples
 as we already saw with strings the + operator concatenates lists and tuples with
 similar containers (i.e. tuples can't be concatenated with lists and vice versa)
 
@@ -386,7 +392,7 @@ print(("hi", "ho") * 3)
 : ['This', 'is', 'not', 'America']
 : ('hi', 'ho', 'hi', 'ho', 'hi', 'ho')
 
-** DONE String formatting with modulo and tuples
+**  String formatting with modulo and tuples
 the modulo operator accepts a string on the left side and a tuple or a list on
 the right side.
 
@@ -414,9 +420,82 @@ print("fixed point %.4f and scientific %.4e modifiers" % (3.14159, 3.14159 / 100
 : |  positive| and |negative  | space padding
 : fixed point 3.1416 and scientific 3.1416e-03 modifiers
 
-* TODO Dictionaries and Sets (and more Strings)
-** TODO Set iterals
-** TODO Dictionary literals
-** TODO Dict-3o6:2ary access
-** TODO Set an dictionary operators
-** TODO String4::2:rmatting with modulo and dictionar-3e:2
+*  Dictionaries and Sets (and more Strings)
+**  Set iterals
+Sets are containers which behave as math sets:
+- they contain just one copy of each value
+- it is possible to efficiently test if a value belongs to the sets
+more operations on set will be described later
+
+Set literal constructor is the curl brace.
+
+#+begin_src python :eval never-export :results output :exports both
+{} # an empty set
+{"Hi"} # a set with only one item
+print({2,2,3,1,"Joe"}) # duplicate item in literals will be dropped
+#+end_src
+
+#+RESULTS:
+: {1, 2, 3, 'Joe'}
+
+lists are not allowed to be set values while tuples are. This is related to
+their immutability as we will see later
+**  Dictionary literals
+dictionaries or maps associate keys with values.
+
+As their literal constructor is a list of key-value pairs; each pair is divided
+by a colon and the list is surrounded by curl braces
+
+As with other containers there is no restriction to use different types of
+objects in the same container.
+
+Lists are not valid keys while tuples are (as with set contents).
+
+#+begin_src python :eval never-export :results output :exports both
+{"hello":1, 10:True, (1,2,3,4):3.14159}
+#+end_src
+**  Dictionary access
+to retrieve a value from a dictionary, its key can be passed through the square
+bracket operator
+
+#+begin_src python :eval never-export :results output :exports both
+print({"hello":1, 10:True, (1,2,3,4):3.14159}["hello"])
+#+end_src
+
+#+RESULTS:
+: 1
+
+if the selected key is missing an error is generated
+**  Set and dictionary operators
+the ~in~ operator can check if an element is part of a set or if there is a key
+in a dictionary
+
+#+begin_src python :eval never-export :results output :exports both
+print(2 in {10, "Joe", 2})
+print(2 in {"hello":1, 10:True, (1,2,3,4):3.14159})
+#+end_src
+
+#+RESULTS:
+: True
+: False
+
+while this operator also works on tuples and lists its time complexity is linear
+while it is constant on dictionaries and sets, so it is not recommended to use
+it with them.
+**  String formatting with modulo and dictionaries
+Dictionaries can be used as the right operand in string formatting expressions
+with the modulo operator.
+
+This can be useful when
+- formatting strings with many data without worrying about order
+- rusing the same value multiple times
+
+placeholders modifiers will include key names in parens
+#+begin_src python :eval never-export :results output :exports both
+print("on %(date)s the temperature is %(temperature).2f degrees" % {"temperature":2.3, "date":"Monday, January 1st"})
+print("My name is %(surname)s, %(first name)s %(surname)s" % {"first name":"James", "surname":"Bond"})
+#+end_src
+
+#+RESULTS:
+: on Monday, January 1st the temperature is 2.30 degree
+: My name is Bond, James Bond
