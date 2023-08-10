@@ -1,0 +1,5 @@
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil
+#+CATEGORY: Language learning
+#+TAGS: Python
+#+DESCRIPTION: how are values created in the source code of python, how to create basic expressions and use basic containers
+#+title: Python Tutorial: Setting up your environment

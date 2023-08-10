@@ -164,7 +164,6 @@ integer numbers also have modulo operator
 #+begin_src python
 13 % 4 # yields 1
 #+end_src
-** Basic functions
 *  Strings
 Strings are data sequances mostly used for human readable text; python strings
 are of two kind:
@@ -497,5 +496,5 @@ print("My name is %(surname)s, %(first name)s %(surname)s" % {"first name":"Jame
 #+end_src
 
 #+RESULTS:
-: on Monday, January 1st the temperature is 2.30 degree
+: on Monday, January 1st the temperature is 2.30 degrees
 : My name is Bond, James Bond

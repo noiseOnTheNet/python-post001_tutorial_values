@@ -1,0 +1,29 @@
+#+BLOG: noise on the net
+#+POSTID: 201
+#+DATE: [2023-08-06 dom 21:44]
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil
+#+CATEGORY: Language learning
+#+TAGS: Python
+#+DESCRIPTION: how are values created in the source code of python, how to create basic expressions and use basic containers
+#+title: Python Tutorial: Variables
+
+In the previous posts we learnt how to create values by typing into the python
+REPL, however the computation we made were somehow "volatile".
+
+Starting from this post I would suggest you to use an editor to type python
+code: we will execute our python files and there will be some exercise available
+
+* What are variables?
+
+* Identity and equivalence
+* Assignment and update
+* Mutability of a value
+* Deleting a variable
+* Yes, but what are variables actually?
+what actually happens in Python is called "binding".
+
+This means we are "connecting" a name with a value.
+
+What python actually does is to use some special "dictionaries" we call
+"environments" to actually create the connection between names ("keys") and "values"
+* Garbage collection is a noble job

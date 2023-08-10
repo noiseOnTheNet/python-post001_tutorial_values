@@ -1,0 +1,44 @@
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil
+#+CATEGORY: Language learning
+#+TAGS: Python
+#+DESCRIPTION: how are values created in the source code of python, how to create basic expressions and use basic containers
+#+title: Python Intro
+* Why Python
+
+Everyone has different reasons to learn a programming language so I'm going
+to list a few which may or may not fit to your need:
+- Learning to use Python is easier than other languages
+- Python is widely used from schools to enterprises
+- There are a lot of powerful extensions
+- There is a large community of developers
+- There is a lot of tutorials available
+
+* How to use this tutorial
+I attempted to present Python without forward references and adding many details
+I found useful in real applications.
+
+Chapters are designed to be read in order; you can also choose a specific topic
+and read it autonomously: in case something is used which is not explained in
+the chapter you read, it should be explained in one of the previous. For this
+reason I believe this index can be a good point to navigate all the chapters
+forth and back
+
+1. Setting up your environment
+2. The python REPL
+3. Some python literals, values and operators
+4. Main containers
+5. Variables and mutability
+6. Structured programming
+7. Functions, environment and closures
+8. Scripts
+9. Modules
+10. Introduction to object oriented programming
+11. Exceptions
+12. Introduction to filesystem and file IO
+13. Overriding of python operators
+14. Iterators and generators
+15. Coroutines
+16. Introduction to functional programming
+
+I will refactor the chapter from time to time to fix errors, add information and
+improve readability
