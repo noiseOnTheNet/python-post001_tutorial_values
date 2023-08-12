@@ -3,3 +3,109 @@
 #+TAGS: Python
 #+DESCRIPTION: how are values created in the source code of python, how to create basic expressions and use basic containers
 #+title: Python Tutorial: Setting up your environment
+http:/noise/wp-content/uploads/2023/08/patrick-NdNtLhq0uG4-unsplash-scaled.jpg
+Photo by [[https://unsplash.com/@pf91_photography?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText][Patrick]] on [[https://unsplash.com/photos/NdNtLhq0uG4?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText][Unsplash]]
+
+*  Installing Python
+There are two main ways I reccommend to install python
+- from the python site https://www.python.org/
+  - python basic package manager is ~pip~ you can use it from any command line of your operative system
+  - when using base python I recommend to create independent [[https://docs.python.org/3/library/venv.html][virtual
+    environments]] for each project, this will help you keep track of the packages
+    you are using and also avoid issues with multiple package versions; the
+    following commands refer to a linux bash command line, you can find windows
+    equivalent in the [[https://docs.python.org/3/library/venv.html#creating-virtual-environments][virtual environment documentation]]
+    1. install venv with the following command
+        #+begin_src bash :noeval
+pip install venv
+        #+end_src
+    2. create a project directory and change your current directory into it
+        #+begin_src bash :noeval
+    mkdir myproject
+    cd myproject
+        #+end_src
+    3. create a virtual environment in the project directory
+        #+begin_src bash :noeval
+    python -m venv .
+        #+end_src
+    4. activate it
+        #+begin_src bash :noeval
+    source bin/activate
+        #+end_src
+- using the miniconda from Continuum https://docs.conda.io/en/latest/miniconda.html
+  - this package and environment manager allows you to easily create independent
+    projects, keeping separate package environments as well as using separate
+    python interpreters
+  - when using Miniconda I also recommend to create separate environments for
+    each project and avoid using the ~base~ environment which hosts the package
+    manager itself
+    1. create a virtual environment with the python version of your choice
+        #+begin_src bash :noeval
+    conda create -n myenv python=3.10
+        #+end_src
+    2. create your project directory and move into it
+    3. activate your conda environment
+        #+begin_src bash :noeval
+conda activate myenv
+        #+end_src
+* Installing some useful packages for this tutorial
+One of python slogans is to be a "Battery Included" language: this means that a
+lot of interesting functionalities are installed by default.
+
+Most of this tutorial will make use of the default library; however I found some
+convenient libraries which are used for exercises and examples.
+
+- [[https://docs.pytest.org/en/7.4.x/][pytest]] helps executing unit tests in a very convenient way
+- ~pytest-xdist~ executes many tests in parallel
+- ~pytest-cov~ creates a coverage report which is very useful
+- [[https://github.com/palantir/python-language-server][python-language-server]] is a [[https://microsoft.github.io/language-server-protocol/][language server]] which will enable your programming
+  editor to help you with development
+- [[https://github.com/psf/black][black]] is a formatter, useful for mantaining a readable code style which is
+  also [[https://en.wikipedia.org/wiki/Version_control][version control]] friendly
+- [[https://www.pylint.org/][pylint]] code linter, will help you find issues in your code witout running it
+- [[https://jupyter.org/][jupyterlab]] a great multilanguage development environment in your browser;
+  used by Google Cloud and many others
+
+#+begin_src bash
+conda install pytest pytest-xdist pytest-cov \
+    python-language-server black \
+    pylint jupyterlab
+#+end_src
+
+* Installing some useful software for programming in Python
+Here is some other software which will help you developing in python
+- [[https://code.visualstudio.com/][Visual Studio Code]] free editor by Microsoft, one of the best around
+  - [[https://code.visualstudio.com/docs/python/python-tutorial][This tutorial]] will help you getting started with Visual Studio Code and python
+- [[https://git-scm.com/][GIT]] one of the most used [[https://en.wikipedia.org/wiki/Version_control][version control]] system, created by [[https://en.wikipedia.org/wiki/Linus_Torvalds][Linus Torvalds]]
+
+*  Using the interactive command line (REPL)
+Python provides a basic interactive command line to start with, I recommend to
+play with it and possibly with all of its extensions.
+
+The command line reads the python expressions or statements, evaluates or
+executes them respectively and prints the result; these interactive command
+lines are called also Read, Eval, Print Loops (REPL) and were available since
+the LISP language.
+
+to start the python REPL open your command line, move into your project,
+activate it and type
+#+begin_src bash :noeval
+python
+#+end_src
+
+this will print some version information and the basic python prompt ~>>>~
+
+You can type here python expressions, when you hit return python will evaluate
+them and print their value.
+
+It is possible to type whole programs into a REPL (which is not the most
+convenient way); I love it because it gives me a fast feedback.
+
+In time many extensions to the python CLI where developed which have some
+advantages, here is a list of some:
+- ipython
+- ptipython (which adds some CLI and editing functionalities)
+- jupyter notebook (web powered extension)
+- jupyter lab (even more powerful)
+Sometime I use one of the last three to make quick prototypes and tests as they
+can save what I typed in a file.

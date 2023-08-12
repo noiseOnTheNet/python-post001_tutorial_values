@@ -25,48 +25,6 @@ immediate feedback of what python actually does.
 Of course there are more convenient interactive environments, but all of them
 introduce some complexity which makes it difficult to have a clear mental model
 of the language
-*  Installing
-There are two main ways I reccommend to install python
-- from the python site https://www.python.org/
-  - python basic package manager is ~pip~ you can use it from any command line of your operative system
-  - when using base python I recommend to create independent [[https://docs.python.org/3/library/venv.html][virtual
-    environments]] for each project, this will help you keep track of the packages
-    you are using and also avoid issues with multiple package versions; the
-    following commands refer to a linux bash command line, you can find windows
-    equivalent in the [[https://docs.python.org/3/library/venv.html#creating-virtual-environments][virtual environment documentation]]
-    1. install venv with the following command
-        #+begin_src bash :noeval
-pip install venv
-        #+end_src
-    2. create a project directory and change your current directory into it
-        #+begin_src bash :noeval
-    mkdir myproject
-    cd myproject
-        #+end_src
-    3. create a virtual environment in the project directory
-        #+begin_src bash :noeval
-    python -m venv .
-        #+end_src
-    4. activate it
-        #+begin_src bash :noeval
-    source bin/activate
-        #+end_src
-- using the miniconda from Continuum https://docs.conda.io/en/latest/miniconda.html
-  - this package and environment manager allows you to easily create independent
-    projects, keeping separate package environments as well as using separate
-    python interpreters
-  - when using Miniconda I also recommend to create separate environments for
-    each project and avoid using the ~base~ environment which hosts the package
-    manager itself
-    1. create a virtual environment with the python version of your choice
-        #+begin_src bash :noeval
-    conda create -n myenv python=3.10
-        #+end_src
-    2. create your project directory and move into it
-    3. activate your conda environment
-        #+begin_src bash :noeval
-conda activate myenv
-        #+end_src
 *  Using the interactive command line (REPL)
 Python provides a basic interactive command line to start with, I recommend to
 play with it and possibly with all of its extensions.
