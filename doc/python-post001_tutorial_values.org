@@ -1,0 +1,203 @@
+#+BLOG: noise on the net
+#+POSTID: 149
+#+DATE: [2022-11-20 dom 20:06]
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil
+#+CATEGORY: Language learning
+#+TAGS: Python
+#+DESCRIPTION: how are values created in the source code of python, how to create basic expressions and use basic containers
+#+title: Python tutorial: literals, values, operators and expressions
+
+https:/noise/wp-content/uploads/2023/08/david-clode-5uU8HSpfwkI-unsplash-2-scaled.jpg
+
+Photo by [[https://unsplash.com/@davidclode?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText][David Clode]] on [[https://unsplash.com/photos/5uU8HSpfwkI?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText][Unsplash]]
+
+In the previous post I explained how to launch a python interactive command line or REPL.
+
+You can enter data and expressions into it by typing "literals" or text which python can transform into numbers or other values.
+
+To follow this post I suggest to open a REPL and type into it; when done type enter and see what happens
+
+*  Numbers
+the python interpreter reads the code and translate it into bytecode -- a lower
+level language which is then executed.
+
+This translation process consists in reading code text and create data
+structures which represents data objects and actions to be performed in memory
+
+Data can be read from formats which are called literals: there can be different
+ways to represent the same object.
+
+Here we will go through some of the numeric formats and their object representation
+
+Try to type these literals into the CLI and python will return a "canonical"
+representation of the equivalent numeric object
+**  Integers
+integer values can be represented in multiple ways:
+#+begin_src python :noeval
+# decimal
+1000000
+# decimal with underscore for readability
+1_000_000
+# hexadecimal
+0xAA19
+# binary
+0b1001010
+# octal
+0o675
+#+end_src
+
+**  Floats
+floating point values can be represented with floating point or scientific format
+#+begin_src python
+# floating point
+-123.4
+# scientific
+-1.234e2
+#+end_src
+**  Complex
+python supports complex numbers literals with cartesian representation
+#+begin_src python
+(1*2j)
+# also floating point can be used in the cartesian format
+(1.0+2.0j)
+#+end_src
+** Operator and expressions on numbers
+ordinary infix operators are available for all numeric types, with the ordinary
+precedence rules.
+
+Precedence can be adjusted by means of parethesis as usual.
+
+#+begin_src python
+(2 + 3) * 4 # 20
+3 / 4 # 0.75 promoted to float
+3 // 4 # 0 integer division
+3 ** 4 # 81 integer power
+(2+3j) * (2-3j) # 25 complex product
+#+end_src
+
+for integer numbers also binary operators are useful:
+
+#+begin_src python
+0b1001 | 0b0101 # yields 0b1101 or 13
+0b1001 & 0b1001 # yields 0b0001 or 1
+0b1001 ^ 0b0101 # yields 0b1100 or 12
+~ 0b0101 # yields 0b1010 or 10
+#+end_src
+
+integer numbers also have modulo operator
+#+begin_src python
+13 % 4 # yields 1
+#+end_src
+*  Strings
+Strings are data sequances mostly used for human readable text; python strings
+are of two kind:
+1. Unicode text strings: each readable character can be represented by one or more bytes
+2. Binary strings: each character will be represented by exactly one bytes,
+   non-readable bytes by escaped hexadecimal sequences of two digits
+**  Text strings
+string literals are surrounded by single quotes ~'~ or double quotes ~"~
+#+begin_src python
+"hi mom"
+'hi mom'
+#+end_src
+when the python REPL returns the canonical representation it uses only the
+single quote
+**  Triple quote
+text in a string can be surrounded by triple quotes ~"""~ or ~'''~, this allows
+to introduce multiline string literals
+#+begin_src pyton
+"""hi
+mom"""
+#+end_src
+when typing multiline expressions the CLI prompt switch to ~...~
+**  Escaping and Unicode
+text strings include special characters which were used to control text
+representation: e.g. newline (ASCII 10) and carriage return (ASCII 13).
+
+These characters are represented by a backward slash ~\~ followed by
+1. a character e.g. newline is ~\n~ and carriage return is ~\r~
+2. a three digit octal number representing an ASCII character e.g. ~\012~
+3. a two digit hexadecimal number e.g. ~\x0A~
+4. an unicode number below 0x10000 ~\u000A~, → ~\u2192~
+5. a 32 bit unicode number ~\U0000000A~, → ~\U00002192~
+6. a unicode name ~"\N{RIGHTWARDS ARROW}"~
+
+some printable character may require escape:
+1. the forward slash itself ~\\~
+2. quotes when identical with the surrounding quotes ~\'~ and ~\"~
+
+See more details also [[https://en.wikipedia.org/wiki/Escape_sequences_in_C][here]]
+**  Raw strings
+by prefixing the letter ~r~ to the first quote, escaping characters will be
+ignored and treated literally: these are called raw strings
+
+Forward slash appear in a couple of situation:
+1. in windows paths (here I will suggest better options later) e.g. ~c:\TEMP~
+2. in regular expressions character classes e.g. ~\d~ the class of digit
+   characters
+
+In this case raw strings can be helpful
+**  Binary strings
+By prefixing a quote with the ~b~ letter the string will be interpreted as a
+binary sequence.
+
+This is useful when
+- reading or writing to an external device, possibly connected through a serial
+- reading or writing binary files
+
+e.g. the following 4 bytes are the "magic number" at the beginning of java class
+file format
+#+begin_src python
+b"\xCA\xFE\xBA\xBE"
+#+end_src
+**  Operators on strings
+strings can use sum and multiplication as following
+#+begin_src python
+"hello " + "world" # yields hello world
+"hello " * 3 # yields "hello hello hello "
+#+end_src
+
+I will introduce more operators and activities on strings later
+*  Booleans and None
+there are a couple of predefined data types with a limited number of values
+which play a fundamental role in python
+**  None
+the None type contains just the ~None~ value
+
+This can be seen as an equivalent of a NULL pointer, its actual usage will be
+shown later
+**  Boolean values and operators
+Boolean type has exactly two values, boolean shortcut operators are written as
+words and have the usual precedence rules
+#+begin_src python
+True
+False
+True and False
+True or False
+not True
+#+end_src
+**  Triple operator and truth values
+the triple operator is composed of
+- the value to be returned if the clause is true
+- the boolean clause
+- the value to be returned if the clause is false
+#+begin_src python
+"there is sunshine" if True else "it rains" # returns "there is sunshine"
+-1 if False else 42 # yields 42
+#+end_src
+
+the clause may contain also non boolean values (a deprecated practice)
+
+In python the following objects are false
+| 0    | integer or floating point number 0 |
+| None | the None object                    |
+| ""   | the empty string                   |
+
+I will add more falsy values later. In contrast the following objects are
+considered "True"
+
+|    1 | any integer, float or complex number different from 0 |
+| "hi" | any non-empty string                                  |
+
+I don't recommend using this way to evaluate clauses as they may be less
+readable.

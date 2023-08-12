@@ -1,9 +1,12 @@
+#+BLOG: noise on the net
+#+POSTID: 206
+#+DATE: [2023-08-12 sab 22:29]
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil
 #+CATEGORY: Language learning
 #+TAGS: Python
-#+DESCRIPTION: how are values created in the source code of python, how to create basic expressions and use basic containers
+#+DESCRIPTION: how to prepare your development environment
 #+title: Python Tutorial: Setting up your environment
-http:/noise/wp-content/uploads/2023/08/patrick-NdNtLhq0uG4-unsplash-scaled.jpg
+https:/noise/wp-content/uploads/2023/08/patrick-NdNtLhq0uG4-unsplash-scaled.jpg
 Photo by [[https://unsplash.com/@pf91_photography?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText][Patrick]] on [[https://unsplash.com/photos/NdNtLhq0uG4?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText][Unsplash]]
 
 *  Installing Python
