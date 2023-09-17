@@ -1,15 +1,25 @@
-#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil
+#+BLOG: noise on the net
+#+POSTID: 209
+#+DATE: [2023-08-12 sab 22:56]
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil ':nil
 #+CATEGORY: Language learning
 #+TAGS: Python
 #+DESCRIPTION: how to use basic containers
+#+HTML_HEAD_EXTRA: <script src="https://modularizer.github.io/pyprez/pyprez.min.js"></script>
 #+title: Python Tutorial: Basic data structures
 
+Photo by [[https://unsplash.com/@dylu?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText][Jacek Dylag]] on [[https://unsplash.com/photos/nhCPOp4A2Xo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText][Unsplash]]
+
+#+begin_export html
+<script src="https://modularizer.github.io/pyprez/pyprez.min.js"></script>
+#+end_export
 
 *  Lists and Tuples (and Strings, again)
 **  List literals
 list can be constructed with the square parens; they can hold objects
 of different kinds and even lists; all objects are separated by a comma
-#+begin_src python
+#+begin_export html
+<pyprez-editor>
 [] # an empty list
 ["hi"] # a list with just one element
 [1,"ho!",[3.5, (0+1j)]] # a nested list with multiple elements
@@ -23,11 +33,13 @@ index 1 etc.
 Lists can be accessed backward with negative indices
 
 When the index exceed the list size an error is generated
-#+begin_src python :eval never
+#+begin_export html
+<pyprez-editor>
 ["hi", "mom"][1] # returns "mom"
 ["thanks", "for", "all", "the", "fish"][-2] # returns "the"
 [][1] # throws an exception
-#+end_src
+</pyprez-editor>
+#+end_export
 **  Splices
 In order to show some result, starting from this paragraph I will use the
 ~print~ function. A more detailed description of functions will be presented
@@ -51,38 +63,29 @@ All three elements are optional, when missing
 - step will be 1
 
 Negative steps are allowed: switching the meaning of start and stop
-#+begin_src python :eval never-export :results output :exports both
-print(["the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"][1:4])
-print(["the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"][1:6:2])
-print(["the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"][:4])
-print(["the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"][4::2])
-print(["the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"][-3:9:2])
-#+end_src
-
-#+RESULTS:
-: ['quick', 'brown', 'fox']
-: ['quick', 'fox', 'over']
-: ['the', 'quick', 'brown', 'fox']
-: ['jumps', 'the', 'dog']
-: ['the', 'dog']
+#+begin_export html
+<pyprez-editor>
+print(['the', 'quick', 'brown', 'fox', 'jumps', 'over', 'the', 'lazy', 'dog'][1:4])
+print(['the', 'quick', 'brown', 'fox', 'jumps', 'over', 'the', 'lazy', 'dog'][1:6:2])
+print(['the', 'quick', 'brown', 'fox', 'jumps', 'over', 'the', 'lazy', 'dog'][:4])
+print(['the', 'quick', 'brown', 'fox', 'jumps', 'over', 'the', 'lazy', 'dog'][4::2])
+print(['the', 'quick', 'brown', 'fox', 'jumps', 'over', 'the', 'lazy', 'dog'][-3:9:2])
+</pyprez-editor>
+#+end_export
 
 **  Accessing strings with index and splice
 index and splice work in the very same way with strings as they do with lists
 
-#+begin_src python :eval never-export :results output :exports both
-print("abcdefghijklmno"[5])
-print("abcdefghijklmno"[-3])
-print("abcdefghijklmno"[:4])
-print("abcdefghijklmno"[-5:])
-print("abcdefghijklmno"[2:8:2])
-#+end_src
+#+begin_export html
+<pyprez-editor>
+print("Here we are, born to be Kings"[5])
+print("Here we are, born to be Kings"[-3])
+print("Here we are, born to be Kings"[:4])
+print("Here we are, born to be Kings"[-5:])
+print("Here we are, born to be Kings"[2:8:2])
+</pyprez-editor>
+#+end_export
 
-#+RESULTS:
-: f
-: m
-: abcd
-: klmno
-: ceg
 
 **  Tuple literals
 Tuple can contain ordered sequences of various kinds of objects, as list do
@@ -93,16 +96,14 @@ an empty parens () usually parens are always used in tuple literals for better r
 Indices and tuples also apply as in lists; the main difference with list is
 related to mutability, a theme I will explain later.
 
-#+begin_src python :eval never-export :results output :exports both
+#+begin_export html
+<pyprez-editor>
 print((True,"hi",3.14159,0+1j)[-1])
 print((True,"hi",3.14159,0+1j)[2])
 print((True,"hi",3.14159,0+1j)[:3])
-#+end_src
+</pyprez-editor>
+#+end_export
 
-#+RESULTS:
-: 1j
-: 3.14159
-: (True, 'hi', 3.14159)
 
 **  Operators on lists and tuples
 as we already saw with strings the + operator concatenates lists and tuples with
@@ -110,14 +111,12 @@ similar containers (i.e. tuples can't be concatenated with lists and vice versa)
 
 The * operator with an integer repeats the content of the sequence
 
-#+begin_src python :eval never-export :results output :exports both
+#+begin_export html
+<pyprez-editor>
 print(["This", "is", "not"] + ["America"])
 print(("hi", "ho") * 3)
-#+end_src
-
-#+RESULTS:
-: ['This', 'is', 'not', 'America']
-: ('hi', 'ho', 'hi', 'ho', 'hi', 'ho')
+</pyprez-editor>
+#+end_export
 
 **  String formatting with modulo and tuples
 the modulo operator accepts a string on the left side and a tuple or a list on
@@ -138,14 +137,12 @@ Between the % sign and the letter some combination of digits and symbols can
 modify the output; here are some example: please refer to a printf manual for
 more details
 
-#+begin_src python :eval never-export :results output :exports both
+#+begin_export html
+<pyprez-editor>
 print("|%10s| and |%-10s| space padding" % ("positive", "negative"))
 print("fixed point %.4f and scientific %.4e modifiers" % (3.14159, 3.14159 / 1000))
-#+end_src
-
-#+RESULTS:
-: |  positive| and |negative  | space padding
-: fixed point 3.1416 and scientific 3.1416e-03 modifiers
+</pyprez-editor>
+#+end_export
 
 *  Dictionaries and Sets (and more Strings)
 **  Set iterals
@@ -156,14 +153,13 @@ more operations on set will be described later
 
 Set literal constructor is the curl brace.
 
-#+begin_src python :eval never-export :results output :exports both
+#+begin_export html
+<pyprez-editor>
 {} # an empty set
 {"Hi"} # a set with only one item
 print({2,2,3,1,"Joe"}) # duplicate item in literals will be dropped
-#+end_src
-
-#+RESULTS:
-: {1, 2, 3, 'Joe'}
+</pyprez-editor>
+#+end_export
 
 lists are not allowed to be set values while tuples are. This is related to
 their immutability as we will see later
@@ -178,33 +174,32 @@ objects in the same container.
 
 Lists are not valid keys while tuples are (as with set contents).
 
-#+begin_src python :eval never-export :results output :exports both
+#+begin_export html
+<pyprez-editor>
 {"hello":1, 10:True, (1,2,3,4):3.14159}
-#+end_src
+</pyprez-editor>
+#+end_export
 **  Dictionary access
 to retrieve a value from a dictionary, its key can be passed through the square
 bracket operator
 
-#+begin_src python :eval never-export :results output :exports both
+#+begin_export html
+<pyprez-editor>
 print({"hello":1, 10:True, (1,2,3,4):3.14159}["hello"])
-#+end_src
-
-#+RESULTS:
-: 1
+</pyprez-editor>
+#+end_export
 
 if the selected key is missing an error is generated
 **  Set and dictionary operators
 the ~in~ operator can check if an element is part of a set or if there is a key
 in a dictionary
 
-#+begin_src python :eval never-export :results output :exports both
+#+begin_export html
+<pyprez-editor>
 print(2 in {10, "Joe", 2})
 print(2 in {"hello":1, 10:True, (1,2,3,4):3.14159})
-#+end_src
-
-#+RESULTS:
-: True
-: False
+</pyprez-editor>
+#+end_export
 
 while this operator also works on tuples and lists its time complexity is linear
 while it is constant on dictionaries and sets, so it is not recommended to use
@@ -218,11 +213,10 @@ This can be useful when
 - rusing the same value multiple times
 
 placeholders modifiers will include key names in parens
-#+begin_src python :eval never-export :results output :exports both
+
+#+begin_export html
+<pyprez-editor>
 print("on %(date)s the temperature is %(temperature).2f degrees" % {"temperature":2.3, "date":"Monday, January 1st"})
 print("My name is %(surname)s, %(first name)s %(surname)s" % {"first name":"James", "surname":"Bond"})
-#+end_src
-
-#+RESULTS:
-: on Monday, January 1st the temperature is 2.30 degrees
-: My name is Bond, James Bond
+</pyprez-editor>
+#+end_export

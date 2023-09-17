@@ -3,8 +3,10 @@
 #+TAGS: Python
 #+DESCRIPTION: how are values created in the source code of python, how to create basic expressions and use basic containers
 #+title: Python Intro
+This is the first post in a tutorial series about Python. I wrote it to leave
+some material for my students but also for anyone who may find it useful
 * Why Python
-
+https:/noise/wp-content/uploads/2023/08/learn_python_plan_2023-08-13_07-28-41.jpg
 Everyone has different reasons to learn a programming language so I'm going
 to list a few which may or may not fit to your need:
 - Learning to use Python is easier than other languages
@@ -28,17 +30,18 @@ forth and back
 3. Some python literals, values and operators
 4. Main containers
 5. Variables and mutability
-6. Structured programming
-7. Functions, environment and closures
-8. Scripts
-9. Modules
-10. Introduction to object oriented programming
-11. Exceptions
-12. Introduction to filesystem and file IO
-13. Overriding of python operators
-14. Iterators and generators
-15. Coroutines
-16. Introduction to functional programming
+6. Basic Builtin Functions
+7. Structured programming
+8. Functions, environment and closures
+9. Scripts
+10. Modules
+11. Introduction to object oriented programming
+12. Exceptions
+13. Introduction to filesystem and file IO
+14. Overriding of python operators
+15. Iterators and generators
+16. Coroutines
+17. Introduction to functional programming
 
 I will refactor the chapter from time to time to fix errors, add information and
 improve readability

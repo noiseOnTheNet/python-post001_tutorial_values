@@ -1,0 +1,105 @@
+#+BLOG: noise on the net
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil
+#+CATEGORY: Language learning
+#+TAGS: Python
+#+DESCRIPTION: when you start python some basic function are available which will be useful in next chapters
+#+title: Python Tutorial: a few built-in basic functions
+functions or procedures are python code executed using the familiar mathematical syntax
+
+#+begin_src python
+launch_rocket(300000,"Moon")t
+#+end_src
+
+Python comes with many predefined function, we just will list a few of them
+because they are so useful and we will use them in next chapters (try them!)
+
+We will also dedicate a more comprehensive chapter on this topic later
+* print
+this is the first and most useful function we meet; in its basic usage will
+print one or more value into our output, different
+
+#+begin_src python :results output :results drawer :eval never-export
+print("get ready...♥")
+print(5,3,2,1,0,"🚀 rocket launch")
+#+end_src
+
+#+RESULTS:
+:results:
+get ready...♥
+5 3 2 1 0 🚀 rocket launch
+:end:
+
+* input
+the input function will print its argument and collect your typing until you hit
+return
+
+#+begin_src python :eval never-export :results output drawer
+answer = input("how went the launch?")
+print("I see,", answer)
+#+end_src
+
+#+RESULTS:
+:results:
+I see, ok
+:end:
+
+it always returns a string
+* len
+this function will return the size of a container e.g.
+
+#+begin_src python :eval never-export :results drawer output
+crate = ["beer","beer","beer"]
+print("the crate contains",len(crate),"bottles of beer")
+#+end_src
+
+#+RESULTS:
+:results:
+the crate contains 3 bottles of beer
+:end:
+
+As some of you may already have imagined it also works for strings
+
+#+begin_src python :eval never-export :results output :results drawer
+poppins_magic = "supercalifragilisticespiralidosus"
+print("always wanted to check if this word is",len(poppins_magic),"letters long")
+#+end_src
+
+#+RESULTS:
+:results:
+always wanted to check if this word is 33 letters long
+:end:
+
+* sorted and reversed
+these functions are quite self-explanative and makes sense with lists
+
+#+begin_src python :eval never-export :results output :results drawer
+ugly = ["words", "in", "alphabetical", "order"]
+print(sorted(ugly))
+print(list(reversed(ugly)))
+#+end_src
+
+#+RESULTS:
+:results:
+['alphabetical', 'in', 'order', 'words']
+['order', 'alphabetical', 'in', 'words']
+:end:
+
+the ~list~ function is needed to transform a "reversed" value object generated
+by the reversed function into a regular list -- we will see this usage many
+times and I promise to reveal the arcane reason behind it
+* round
+
+* min and max
+* dir
+* help
+* globals
+#+begin_src python :results drawer :eval never-export :results output
+print(dir(__builtins__))
+print(sorted([3,2,1]))
+#+end_src
+
+#+RESULTS:
+:results:
+['ArithmeticError', 'AssertionError', 'AttributeError', 'BaseException', 'BlockingIOError', 'BrokenPipeError', 'BufferError', 'BytesWarning', 'ChildProcessError', 'ConnectionAbortedError', 'ConnectionError', 'ConnectionRefusedError', 'ConnectionResetError', 'DeprecationWarning', 'EOFError', 'Ellipsis', 'EnvironmentError', 'Exception', 'False', 'FileExistsError', 'FileNotFoundError', 'FloatingPointError', 'FutureWarning', 'GeneratorExit', 'IOError', 'ImportError', 'ImportWarning', 'IndentationError', 'IndexError', 'InterruptedError', 'IsADirectoryError', 'KeyError', 'KeyboardInterrupt', 'LookupError', 'MemoryError', 'ModuleNotFoundError', 'NameError', 'None', 'NotADirectoryError', 'NotImplemented', 'NotImplementedError', 'OSError', 'OverflowError', 'PendingDeprecationWarning', 'PermissionError', 'ProcessLookupError', 'RecursionError', 'ReferenceError', 'ResourceWarning', 'RuntimeError', 'RuntimeWarning', 'StopAsyncIteration', 'StopIteration', 'SyntaxError', 'SyntaxWarning', 'SystemError', 'SystemExit', 'TabError', 'TimeoutError', 'True', 'TypeError', 'UnboundLocalError', 'UnicodeDecodeError', 'UnicodeEncodeError', 'UnicodeError', 'UnicodeTranslateError', 'UnicodeWarning', 'UserWarning', 'ValueError', 'Warning', 'ZeroDivisionError', '__build_class__', '__debug__', '__doc__', '__import__', '__loader__', '__name__', '__package__', '__spec__', 'abs', 'all', 'any', 'ascii', 'bin', 'bool', 'breakpoint', 'bytearray', 'bytes', 'callable', 'chr', 'classmethod', 'compile', 'complex', 'copyright', 'credits', 'delattr', 'dict', 'dir', 'divmod', 'enumerate', 'eval', 'exec', 'exit', 'filter', 'float', 'format', 'frozenset', 'getattr', 'globals', 'hasattr', 'hash', 'help', 'hex', 'id', 'input', 'int', 'isinstance', 'issubclass', 'iter', 'len', 'license', 'list', 'locals', 'map', 'max', 'memoryview', 'min', 'next', 'object', 'oct', 'open', 'ord', 'pow', 'print', 'property', 'quit', 'range', 'repr', 'reversed', 'round', 'set', 'setattr', 'slice', 'sorted', 'staticmethod', 'str', 'sum', 'super', 'tuple', 'type', 'vars', 'zip']
+[1, 2, 3]
+:end:

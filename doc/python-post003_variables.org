@@ -6,6 +6,8 @@
 #+TAGS: Python
 #+DESCRIPTION: how are values created in the source code of python, how to create basic expressions and use basic containers
 #+title: Python Tutorial: Variables
+https:/noise/wp-content/uploads/2023/08/raghav-bhasin-c3sMNpS2-Dg-unsplash.jpg
+Photo by [[https://unsplash.com/@myphotocave?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText][Raghav Bhasin]] on [[https://unsplash.com/photos/c3sMNpS2-Dg?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText][Unsplash]]
 
 In the previous posts we learnt how to create values by typing into the python
 REPL, however the computation we made were somehow "volatile".
@@ -14,11 +16,115 @@ Starting from this post I would suggest you to use an editor to type python
 code: we will execute our python files and there will be some exercise available
 
 * What are variables?
+most of us learn about variables while studying basic equations; placeholders
+for a number.
 
-* Identity and equivalence
+In a python program a variable is a name we give to a value; a way to move
+values around in the program itself.
+
+This is different from languages like C where a variable declaration is an
+instruction for the compiler to save some space in the program memory (the C
+programmers would say in the program "stack")
+
+Python is more similar to the Lisp programming language, where a value can be
+"bounded" to a name.
 * Assignment and update
+an assignment is made with a variable name followed by the equal sign and an
+expression
+
+Expressions can contain literals and variables too
+#+begin_src python
+message = "Houston we have a problem"
+the_answer = 6 * 7
+response = "Apollo, we have a solution %d" % (the_answer,)
+#+end_src
+
+Variable names must start with a letter and can contain letters, figures and
+underscore. This kind of names are called "identifiers".
+
+By the way -- letters are defined in the "UNICODE" specification so you can use
+also greek letters (which is a beloved feature by academics) or letters from
+your favorite language (if your editor help you showing them)
+#+begin_src python
+λ0 = 0.5
+δ = λ0 / 10
+#+end_src
+https:/noise/wp-content/uploads/2023/08/greek_letters_meme.jpg
+
+once a variable value is set, a new assignment
+changes the binding.
+
+For those values who support sum, multiplication or subtraction the following
+operators can be used to update the value from the previous one
+
+#+begin_src python
+the_answer -= 13
+response += "!"
+#+end_src
+* Identity and equivalence
+We call two values equivalent if their content has the same meaning even if they
+are stored in different python objects
+
+The double equal is the operator to check value equivalence, it returns a boolean
+#+begin_src python
+the_answer = 13
+the_answer == 13 # True
+the_answer != 42 # True
+#+end_src
+
+the ~is~ operator is used to check if an object is exactly the same
+
+#+begin_src python
+message1 = ["I don't know who I am", 0]
+message2 = message1
+message3 = ["I don't know who I am", 0]
+message1 is message2 # True
+message1 is message3 # False
+#+end_src
+
+String literals are "optimized" by the compiler at compile time so that only a
+copy is in memory
 * Mutability of a value
+Sometime the result of an operation is a new value, i.e. a different python object.
+
+Other times the same object is altered to store the new "value content"
+
+Try this example in a python REPL (command line):
+Lists are "mutable", i.e. the object is "re-used" to contain new values
+#+begin_src python
+x = [1,2]
+y = x
+x += [3]
+x == [1,2,3] # True
+y == [1,2,3] # True
+y is x # True
+#+end_src
+
+Tuples are "immutable", i.e. a new value is created after each operation
+#+begin_src python
+x = (1,2)
+y = x
+x += (3,)
+x == (1,2,3) # True
+y == (1,2,3) # False
+y is x # False
+#+end_src
+
+
 * Deleting a variable
+it is possible to erase a variable when it is not useful anymore
+#+begin_src python
+the_answer = 42
+del the_answer
+#+end_src
+
+With the same syntax we can delete also dictionary keys...
+#+begin_src python
+user_info = {"username": "Marco", "password": "HAHAHAHA"}
+del user_info["password"]
+#+end_src
+
+does this coincidence sound strange to you?
 * Yes, but what are variables actually?
 what actually happens in Python is called "binding".
 
@@ -27,3 +133,8 @@ This means we are "connecting" a name with a value.
 What python actually does is to use some special "dictionaries" we call
 "environments" to actually create the connection between names ("keys") and "values"
 * Garbage collection is a noble job
+when a value is not bounded to any variable it is cleaned away from the process
+memory: this cleaning is called "garbage collection".
+
+The garbage collection also takes care to properly free resources which may be
+attached to the collected value (e.g. open files etc)
