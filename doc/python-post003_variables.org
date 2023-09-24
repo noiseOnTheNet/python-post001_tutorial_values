@@ -14,127 +14,178 @@ REPL, however the computation we made were somehow "volatile".
 
 Starting from this post I would suggest you to use an editor to type python
 code: we will execute our python files and there will be some exercise available
+#+begin_export html
+<script src="https://modularizer.github.io/pyprez/pyprez.min.js"></script>
+#+end_export
 
 * What are variables?
 most of us learn about variables while studying basic equations; placeholders
 for a number.
-
+#+begin_export html
+<br/>
+#+end_export
 In a python program a variable is a name we give to a value; a way to move
 values around in the program itself.
-
+#+begin_export html
+<br/>
+#+end_export
 This is different from languages like C where a variable declaration is an
 instruction for the compiler to save some space in the program memory (the C
 programmers would say in the program "stack")
-
+#+begin_export html
+<br/>
+#+end_export
 Python is more similar to the Lisp programming language, where a value can be
 "bounded" to a name.
 * Assignment and update
 an assignment is made with a variable name followed by the equal sign and an
 expression
-
+#+begin_export html
+<br/>
+#+end_export
 Expressions can contain literals and variables too
-#+begin_src python
+#+begin_export html
+<pyprez-editor>
 message = "Houston we have a problem"
 the_answer = 6 * 7
 response = "Apollo, we have a solution %d" % (the_answer,)
-#+end_src
+response
+</pyprez-editor>
+#+end_export
 
 Variable names must start with a letter and can contain letters, figures and
 underscore. This kind of names are called "identifiers".
-
+#+begin_export html
+<br/>
+#+end_export
 By the way -- letters are defined in the "UNICODE" specification so you can use
 also greek letters (which is a beloved feature by academics) or letters from
 your favorite language (if your editor help you showing them)
-#+begin_src python
+#+begin_export html
+<pyprez-editor>
 λ0 = 0.5
 δ = λ0 / 10
-#+end_src
+δ
+</pyprez-editor>
+#+end_export
 https:/noise/wp-content/uploads/2023/08/greek_letters_meme.jpg
 
 once a variable value is set, a new assignment
 changes the binding.
-
+#+begin_export html
+<br/>
+#+end_export
 For those values who support sum, multiplication or subtraction the following
 operators can be used to update the value from the previous one
 
-#+begin_src python
+#+begin_export html
+<pyprez-editor>
 the_answer -= 13
 response += "!"
-#+end_src
+response
+</pyprez-editor>
+#+end_export
 * Identity and equivalence
 We call two values equivalent if their content has the same meaning even if they
 are stored in different python objects
-
+#+begin_export html
+<br/>
+#+end_export
 The double equal is the operator to check value equivalence, it returns a boolean
-#+begin_src python
+#+begin_export html
+<pyprez-editor>
 the_answer = 13
-the_answer == 13 # True
-the_answer != 42 # True
-#+end_src
+(the_answer == 13, # True
+ the_answer != 42) # True
+</pyprez-editor>
+#+end_export
 
 the ~is~ operator is used to check if an object is exactly the same
 
-#+begin_src python
+#+begin_export html
+<pyprez-editor>
 message1 = ["I don't know who I am", 0]
 message2 = message1
 message3 = ["I don't know who I am", 0]
-message1 is message2 # True
-message1 is message3 # False
-#+end_src
+(message1 is message2, # True
+ message1 is message3) # False
+</pyprez-editor>
+#+end_export
 
 String literals are "optimized" by the compiler at compile time so that only a
 copy is in memory
 * Mutability of a value
 Sometime the result of an operation is a new value, i.e. a different python object.
-
+#+begin_export html
+<br/>
+#+end_export
 Other times the same object is altered to store the new "value content"
-
+#+begin_export html
+<br/>
+#+end_export
 Try this example in a python REPL (command line):
 Lists are "mutable", i.e. the object is "re-used" to contain new values
-#+begin_src python
+#+begin_export html
+<pyprez-editor>
 x = [1,2]
 y = x
 x += [3]
-x == [1,2,3] # True
-y == [1,2,3] # True
-y is x # True
-#+end_src
+(x == [1,2,3], # True
+ y == [1,2,3], # True
+ y is x) # True
+</pyprez-editor>
+#+end_export
 
 Tuples are "immutable", i.e. a new value is created after each operation
-#+begin_src python
+#+begin_export html
+<pyprez-editor>
 x = (1,2)
 y = x
 x += (3,)
-x == (1,2,3) # True
-y == (1,2,3) # False
-y is x # False
-#+end_src
+(x == (1,2,3), # True
+ y == (1,2,3), # False
+ y is x) # False
+</pyprez-editor>
+#+end_export
 
 
 * Deleting a variable
 it is possible to erase a variable when it is not useful anymore
-#+begin_src python
+#+begin_export html
+<pyprez-editor>
 the_answer = 42
 del the_answer
-#+end_src
+the_answer #this will throw an exception
+</pyprez-editor>
+#+end_export
 
 With the same syntax we can delete also dictionary keys...
-#+begin_src python
+#+begin_export html
+<pyprez-editor>
 user_info = {"username": "Marco", "password": "HAHAHAHA"}
 del user_info["password"]
-#+end_src
+user_info
+</pyprez-editor>
+#+end_export
 
 does this coincidence sound strange to you?
 * Yes, but what are variables actually?
 what actually happens in Python is called "binding".
-
+#+begin_export html
+<br/>
+#+end_export
 This means we are "connecting" a name with a value.
-
+#+begin_export html
+<br/>
+#+end_export
 What python actually does is to use some special "dictionaries" we call
 "environments" to actually create the connection between names ("keys") and "values"
 * Garbage collection is a noble job
+https://noiseonthenet.space/noise/wp-content/uploads/2023/09/refcount.jpg
 when a value is not bounded to any variable it is cleaned away from the process
 memory: this cleaning is called "garbage collection".
-
+#+begin_export html
+<br/>
+#+end_export
 The garbage collection also takes care to properly free resources which may be
 attached to the collected value (e.g. open files etc)

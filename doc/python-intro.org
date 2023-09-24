@@ -1,10 +1,17 @@
+#+BLOG: noise on the net
+#+POSTID: 249
+#+DATE: [2023-09-24 dom 18:11]
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil
 #+CATEGORY: Language learning
 #+TAGS: Python
 #+DESCRIPTION: how are values created in the source code of python, how to create basic expressions and use basic containers
 #+title: Python Intro
+https://noiseonthenet.space/noise/wp-content/uploads/2023/09/denny-muller-HCx0A924qf8-unsplash-scaled.jpg
+Photo by [[https://unsplash.com/@redaquamedia?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText][Denny Müller]] on [[https://unsplash.com/photos/HCx0A924qf8?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText][Unsplash]]
+
 This is the first post in a tutorial series about Python. I wrote it to leave
 some material for my students but also for anyone who may find it useful
+
 * Why Python
 https:/noise/wp-content/uploads/2023/08/learn_python_plan_2023-08-13_07-28-41.jpg
 Everyone has different reasons to learn a programming language so I'm going
@@ -25,12 +32,15 @@ the chapter you read, it should be explained in one of the previous. For this
 reason I believe this index can be a good point to navigate all the chapters
 forth and back
 
-1. Setting up your environment
+Some chapter make use of the excellent [[https://github.com/modularizer/pyprez][pyprez]] which in turn is fueled by the
+excellent [[https://pyodide.org/en/stable/][pyodide]] to make your experience more interactive
+
+1. [[https://noiseonthenet.space/noise/2023/08/python-tutorial-setting-up-your-environment/][Setting up your environment]]
 2. The python REPL
 3. Some python literals, values and operators
-4. Main containers
-5. Variables and mutability
-6. Basic Builtin Functions
+4. [[https://noiseonthenet.space/noise/2023/08/python-tutorial-basic-data-structures/][Main containers]]
+5. [[https://noiseonthenet.space/noise/2023/08/python-tutorial-variables/][Variables and mutability]]
+6. [[https://noiseonthenet.space/noise/2023/09/python-tutorial-a-few-built-in-basic-functions/][Basic Builtin Functions]]
 7. Structured programming
 8. Functions, environment and closures
 9. Scripts

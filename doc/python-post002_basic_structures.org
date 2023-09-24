@@ -7,7 +7,7 @@
 #+DESCRIPTION: how to use basic containers
 #+HTML_HEAD_EXTRA: <script src="https://modularizer.github.io/pyprez/pyprez.min.js"></script>
 #+title: Python Tutorial: Basic data structures
-
+https:/noise/wp-content/uploads/2023/09/jacek-dylag-nhCPOp4A2Xo-unsplash-3-scaled.jpg
 Photo by [[https://unsplash.com/@dylu?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText][Jacek Dylag]] on [[https://unsplash.com/photos/nhCPOp4A2Xo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText][Unsplash]]
 
 #+begin_export html
@@ -18,12 +18,15 @@ Photo by [[https://unsplash.com/@dylu?utm_source=unsplash&utm_medium=referral&ut
 **  List literals
 list can be constructed with the square parens; they can hold objects
 of different kinds and even lists; all objects are separated by a comma
+
 #+begin_export html
 <pyprez-editor>
 [] # an empty list
 ["hi"] # a list with just one element
 [1,"ho!",[3.5, (0+1j)]] # a nested list with multiple elements
-#+end_src
+</pyprez-editor>
+#+end_export
+
 **  List access
 list elements can be accessed via the square brackets operator.
 
