@@ -111,6 +111,7 @@ mom"""
 #+end_src
 when typing multiline expressions the CLI prompt switch to ~...~
 **  Escaping and Unicode
+https://noiseonthenet.space/noise/wp-content/uploads/2023/10/unicode_art.jpg
 text strings include special characters which were used to control text
 representation: e.g. newline (ASCII 10) and carriage return (ASCII 13).
 

@@ -1,0 +1,73 @@
+#+BLOG: noise on the net
+#+POSTID: 270
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil
+#+CATEGORY: Language learning
+#+TAGS: Python
+#+DATE: [2023-10-01 dom 21:06]
+#+title: Python REPL
+https://noiseonthenet.space/noise/wp-content/uploads/2023/10/altumcode-mCj7UinqOYQ-unsplash-scaled.jpg
+
+Photo by [[https://unsplash.com/@altumcode?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText][AltumCode]] on [[https://unsplash.com/photos/mCj7UinqOYQ?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText][Unsplash]]
+
+We are going to explore one of the most interesting feature of python: an
+interactive command line also known as REPL
+
+* What the *$! does REPL mean?
+REPL acronym stands for
+- Read (the computer reads what you typed and if it respects Python grammar rules transforms it into executable code)
+- Eval (the python interpreter executes your code and get a result)
+- Print (the python interpreter prints the result in a line below your text)
+- Loop (Let's start all over again)
+
+* Why should this interest me?
+https://noiseonthenet.space/noise/wp-content/uploads/2023/10/typecat.jpg
+
+Instead of writing a program the REPL allows you to add a few commands at a time
+and immediately see the output
+
+This allow you to get an immediate feedback and quickly explore various
+solutions with a "live" environment; you can build your calculations stepwise: I
+recommend to make experiments with this when possible as this will speed up your
+learning.
+
+* How do I use the Python REPL
+#+begin_export html
+<script src="https://modularizer.github.io/pyprez/pyprez.min.js"></script>
+#+end_export
+Directly from your browser...
+
+#+begin_export html
+<pyprez-editor>
+print("get ready...♥")
+print(5,3,2,1,0,"rocket launch")
+</pyprez-editor>
+#+end_export
+
+Or you can launch from a command line in your PC typing "python"
+
+https://noiseonthenet.space/noise/wp-content/uploads/2023/10/test5.gif
+
+- Each command line starts with three > sign
+- once the command is completed type enter and see the result
+- multiline commands show a "..."  prompt -- this will allow you to break long commands in smaller pieces
+
+* But... then I lose all I wrote?
+
+https://noiseonthenet.space/noise/wp-content/uploads/2023/10/code_lost.jpg
+
+Short answer yes. But...
+
+Actually there are many awesome extensions which allow you to:
+- save your code and results
+- see graphical outputs
+- create documents including text and formulae in a lot of formats
+- mixing results with other programming languages snippets
+- easily execute operations on your PC
+- share your work with others
+- and much more
+
+Just to name a few:
+- [[https://ipython.org/][IPython]] (I often use an extension called PTIPython)
+- [[https://jupyter.org/][Jupyter Notebook]] (which executes many other programming languages too)
+- [[https://jupyterlab.readthedocs.io/en/latest/][Jupyter Lab]] (which does way more than execute code: remote terminals, file editing etc.)
+- [[https://jupyter.org/try-jupyter/lab/][Jupyter Lite]] (which does the same things without any installation)

@@ -1,0 +1,194 @@
+#+BLOG: noise on the net
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil
+#+CATEGORY: Language learning
+#+TAGS: Python
+#+DESCRIPTION: short introduction to structured programming in python
+#+POSTID: 297
+#+DATE: [2023-10-28 sab 20:33]
+#+title: Python Tutorial: Structured Programming
+https://noiseonthenet.space/noise/wp-content/uploads/2023/10/katie-smith-uQs1802D0CQ-unsplash.jpg
+
+Photo by [[https://unsplash.com/@kate5oh3?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash][Katie Smith]] on [[https://unsplash.com/photos/avocado-tomatoes-eggs-mushrooms-spring-onions-and-leaves-uQs1802D0CQ?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash][Unsplash]]
+
+return to [[https://noiseonthenet.space/noise/2023/09/python-intro/][index]]
+
+* Algorithms, Flowchart and Structured programming
+
+https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/1983_CPA_5426.jpg/447px-1983_CPA_5426.jpg
+(image by wikipedia)
+
+Algorithms are named after [[https://it.wikipedia.org/wiki/Mu%E1%B8%A5ammad_ibn_M%C5%ABs%C4%81_al-Khw%C4%81rizm%C4%AB][Muḥammad ibn Mūsā al-Khwārizmī]], arab mathematician lived in VIII century, whose work is universally recognized as the basis for algebra.
+
+Algorithm were originally "recipes" to solve mathematical problems but soon the term expanded to any well defined procedure.
+
+A control-flow chart, also known as [[https://en.wikipedia.org/wiki/Flowchart][flow chart]] is a graphical representation
+many of us are familiar with; it represents an algorithm and shows the sequences
+of actions to perform, the checks and decision points which eventually lead to
+its completion
+
+https://noiseonthenet.space/noise/wp-content/uploads/2023/10/engineering_workflow.png
+
+The [[https://en.wikipedia.org/wiki/Structured_program_theorem][Böhm–Jacopini theorem]] states that a class of control-flow charts can always
+be translated into a "structured programming" representation i.e. it can be
+represented using a three structure composed of three possible blocks of operations:
+
+- sequences (when multiple atomic operations or blocks are executed one after the other)
+- selections (when a condition is tested to decide which branch of the block three to follow)
+- iterations (when a block is executed until a certain test condition is true)
+
+That step represented a big leap in computer science which allowed to better
+describe computer algorithm and forms the basis of many modern computer
+programming languages, including Python
+
+* Sequence
+https://noiseonthenet.space/noise/wp-content/uploads/2023/10/marching.jpg
+
+Image By [[https://www.flickr.com/photos/defenceimages][Defence Images]] on [[https://www.flickr.com/photos/defenceimages/5038805562][flickr]]
+
+#+begin_export html
+<script src="https://modularizer.github.io/pyprez/pyprez.min.js"></script>
+#+end_export
+Python most common way to execute a sequence of commands is to write each
+command in a single line one below the other
+
+#+begin_export html
+<pyprez-editor>
+print("get ready...♥")
+print(5,3,2,1,0,"rocket launch")
+</pyprez-editor>
+#+end_export
+
+while it is very discouraged a sequence can be created on a single line by separating operations with a semicolon
+
+#+begin_export html
+<pyprez-editor>
+print("get ready...♥"); print(5,3,2,1,0,"evil rocket launch")
+</pyprez-editor>
+#+end_export
+* Selection
+a selection is introduced by the ~if~ keyword followed by a boolean expression and a colon
+
+After the colon a new block starts which is identified by the next lines to have the same indentation.
+
+The ~elif~ clause allows to concatenate more conditions
+
+the ~else~ clause can be added only once as the last one, and will handle all other cases
+#+begin_export html
+<pyprez-editor>
+season = "winter"
+if season == "winter":
+    print("I love winter...")
+    print("and holiday season!")
+elif season == "summer":
+    print("I love summertime...🌣")
+    print("and the sea!")
+else:
+    print("I love all seasons!")
+</pyprez-editor>
+#+end_export
+
+Please note that this way of build code blocks by indenting lines after a
+statement with a colon at the end of the line is very common in python
+* Pattern Matching
+this special kind of selection was invented in other programming languages
+(mainly the [[https://en.wikipedia.org/wiki/ML_(programming_language)][ML family]]) to make it easy to destructure three data structures
+
+Its main advantage respect to if statements is to deeply access nested data
+structures, in python is available from version [[https://peps.python.org/pep-0636/][3.10]]
+
+The ~match~ keyword, followed by any expression and a colon starts the pattern matching.
+
+Per each matching branch there is a ~case~ keyword, followed by the pattern and a colon.
+
+Finally there is a code block which will be executed.
+
+pattern matching can also get values from the data structure itself
+#+begin_export html
+<pyprez-editor>
+command = "get beer"
+match command.split():
+    case []:
+        print("no command!")
+    case ["quit"]:
+        print("Goodbye!")
+    case ["look"]:
+        print("there is a beer in the fridge")
+    case ["get", obj]:
+        print("got", obj)
+    case ["go", direction]:
+        print("walking",direction)
+</pyprez-editor>
+#+end_export
+
+pattern matching includes also multiple options per line; in this example the last clause catch all the missing cases
+#+begin_export html
+<pyprez-editor>
+seasons = ["winter", "spring", "summer", "fall"]
+match seasons:
+    case None | [] :
+        print("no elements")
+    case [obj]:
+        print("only element is", obj)
+    case _:
+        print("the first element is", season[0])
+</pyprez-editor>
+#+end_export
+
+* Precondition Iteration
+the precondition iteration is introduced by the ~while~ keyword: no
+postcondition is available.
+
+this is an example of Euclid's MCD algorithm using precondition
+#+begin_export html
+<pyprez-editor>
+starting_a = 75
+starting_b = 121
+if starting_a > starting_b:
+    a = starting_a
+    b = starting_b
+else:
+    a = starting_b
+    b = starting_a
+while b != 0:
+    r = a % b
+    a = b
+    b = r
+print("the MCD between",starting_a,"and",starting_b,"is",a)
+</pyprez-editor>
+#+end_export
+
+* For Iteration
+https://noiseonthenet.space/noise/wp-content/uploads/2023/10/oin_gloin.jpg
+
+image by [[https://www.deviantart.com/haleyhss/gallery][haleyss]] on DeviantArt
+
+the ~for~ iteration is meant to extract all data from a data structure and
+process them one item at a time: the simplest example is to iterate over a list
+
+#+begin_export html
+<pyprez-editor>
+dwarfs = ["Dwalin", "Balin", "Fíli", "Kíli", "Bifur", "Bofur",
+"Bombur", "Dori", "Nori", "Ori", "Óin", "Glóin"]
+for dwarf in dwarfs:
+    print(dwarf, "enters Bilbo's home")
+</pyprez-editor>
+#+end_export
+
+after the ~for~ keyword there is an identifier to which each item in the list a
+will be assigned in turn
+
+when iterating on a list of tuples the items can be unpacked:
+#+begin_export html
+<pyprez-editor>
+names = [("James","Bond"),("Robin","Hood")]
+for first_name, last_name in names:
+    print("my name is", last_name, ",", first_name, last_name )
+</pyprez-editor>
+#+end_export
+
+* Useful predefined function for iterations
+sometime it can be useful to know also the position of an element
+
+
+* Iterating dictionaries
+* Iteration exceptions to structured programming

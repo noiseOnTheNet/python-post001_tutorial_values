@@ -36,8 +36,8 @@ Some chapter make use of the excellent [[https://github.com/modularizer/pyprez][
 excellent [[https://pyodide.org/en/stable/][pyodide]] to make your experience more interactive
 
 1. [[https://noiseonthenet.space/noise/2023/08/python-tutorial-setting-up-your-environment/][Setting up your environment]]
-2. The python REPL
-3. Some python literals, values and operators
+2. [[https://noiseonthenet.space/noise/2023/10/python-repl/][The python REPL]]
+3. [[https://noiseonthenet.space/noise/2022/11/python-tutorial-literals-values-operators-and-expressions/][Some python literals, values and operators]]
 4. [[https://noiseonthenet.space/noise/2023/08/python-tutorial-basic-data-structures/][Main containers]]
 5. [[https://noiseonthenet.space/noise/2023/08/python-tutorial-variables/][Variables and mutability]]
 6. [[https://noiseonthenet.space/noise/2023/09/python-tutorial-a-few-built-in-basic-functions/][Basic Builtin Functions]]
