@@ -12,6 +12,9 @@ Photo by [[https://unsplash.com/@kate5oh3?utm_content=creditCopyText&utm_medium=
 
 return to [[https://noiseonthenet.space/noise/2023/09/python-intro/][index]]
 
+#+begin_export html
+<script src="https://modularizer.github.io/pyprez/pyprez.min.js"></script>
+#+end_export
 * Algorithms, Flowchart and Structured programming
 
 https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/1983_CPA_5426.jpg/447px-1983_CPA_5426.jpg
