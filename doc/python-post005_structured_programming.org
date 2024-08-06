@@ -17,9 +17,12 @@ return to [[https://noiseonthenet.space/noise/2023/09/python-intro/][index]]
 https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/1983_CPA_5426.jpg/447px-1983_CPA_5426.jpg
 (image by wikipedia)
 
-Algorithms are named after [[https://it.wikipedia.org/wiki/Mu%E1%B8%A5ammad_ibn_M%C5%ABs%C4%81_al-Khw%C4%81rizm%C4%AB][Muḥammad ibn Mūsā al-Khwārizmī]], arab mathematician lived in VIII century, whose work is universally recognized as the basis for algebra.
+Algorithms are named after [[https://it.wikipedia.org/wiki/Mu%E1%B8%A5ammad_ibn_M%C5%ABs%C4%81_al-Khw%C4%81rizm%C4%AB][Muḥammad ibn Mūsā al-Khwārizmī]], arab mathematician
+lived in VIII century, whose work is universally recognized as the basis for
+algebra.
 
-Algorithm were originally "recipes" to solve mathematical problems but soon the term expanded to any well defined procedure.
+Algorithm were originally "recipes" to solve mathematical problems but soon the
+term expanded to any well defined procedure.
 
 A control-flow chart, also known as [[https://en.wikipedia.org/wiki/Flowchart][flow chart]] is a graphical representation
 many of us are familiar with; it represents an algorithm and shows the sequences
@@ -32,8 +35,10 @@ The [[https://en.wikipedia.org/wiki/Structured_program_theorem][Böhm–Jacopini
 be translated into a "structured programming" representation i.e. it can be
 represented using a three structure composed of three possible blocks of operations:
 
-- sequences (when multiple atomic operations or blocks are executed one after the other)
-- selections (when a condition is tested to decide which branch of the block three to follow)
+- sequences (when multiple atomic operations or blocks are executed one after
+  the other)
+- selections (when a condition is tested to decide which branch of the block
+  three to follow)
 - iterations (when a block is executed until a certain test condition is true)
 
 That step represented a big leap in computer science which allowed to better
@@ -120,7 +125,8 @@ match command.split():
 </pyprez-editor>
 #+end_export
 
-pattern matching includes also multiple options per line; in this example the last clause catch all the missing cases
+pattern matching includes also multiple options per line; in this example the
+last clause catch all the missing cases
 #+begin_export html
 <pyprez-editor>
 seasons = ["winter", "spring", "summer", "fall"]
@@ -187,8 +193,61 @@ for first_name, last_name in names:
 #+end_export
 
 * Useful predefined function for iterations
-sometime it can be useful to know also the position of an element
+sometime it can be useful to know also the position of an element in a list we
+are iterating over: ~enumerate~ iterator pairs our list element with the index.
 
+#+begin_export html
+<pyprez-editor>
+for index, value in enumerate(["first", "second", "third"]):
+    print("index", index, "value", value)
+</pyprez-editor>
+#+end_export
 
+please note that lists and tuples are not the only data structures where we can
+iterate over; in other data structures, the first element is not representing
+the index, rather the order of extraction.
+
+lists may be also ~sorted~ and ~reversed~ with the functions named in this way.
+
+#+begin_export html
+<pyprez-editor>
+for word in sorted(["first", "second", "third", "fourth", "fifth"]):
+    print(word)
+</pyprez-editor>
+#+end_export
 * Iterating dictionaries
+Also dictionaries can be iterated: loops will iterate on their keys
+
+#+begin_export html
+<pyprez-editor>
+for key in {"alice":100, "bob":200, "carl":300, "diana":500}:
+    print(word)
+</pyprez-editor>
+#+end_export
+
 * Iteration exceptions to structured programming
+the ~continue~ keyword skip to next iteration: the following code will print all odd values in the list.
+
+#+begin_export html
+<pyprez-editor>
+for value in [1, 2, 3, 4, 5]:
+    if value % 2 == 0:
+        continue
+    print(value)
+</pyprez-editor>
+#+end_export
+
+the ~break~ keyword stop iteration: the following code will just print 1
+
+#+begin_export html
+<pyprez-editor>
+for value in [1, 2, 3, 4, 5]:
+    if value % 2 == 0:
+        break
+    print(value)
+</pyprez-editor>
+#+end_export
+
+* Pattern Matching
+- requires classes to be better understood
+- move in functional programming?

@@ -1,0 +1,89 @@
+#+BLOG: noise on the net
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil
+#+CATEGORY: Language learning
+#+TAGS: Python
+#+DESCRIPTION: sintroduction to function definition
+#+title: Python Tutorial: User Defined Functions, Environments and Closures
+
+While a python script can be a sequence of statement defining function can be
+very effective, due to the special properties that function have and of course
+to the code organization and reusability.
+#+begin_export html
+<script src="https://modularizer.github.io/pyprez/pyprez.min.js"></script>
+#+end_export
+* Function basic definition
+the following example creates a completely useless function
+#+begin_src python
+def fun():
+    pass
+#+end_src
+but shows some important elements:
+- the ~def~ keyword
+- the colon starting a new block which contains the body of the function
+This is the bare minimum to create a function
+
+this can be called as any predefined function
+#+begin_src python
+fun()
+#+end_src
+
+User defined functions are first class citizen and there is no special
+privileges that built-in function have (ok there are a few exceptions but let's
+ignore them for a while)
+
+Moreover user can redefine a built-in function just by declaring one with the
+same name. This is very powerful but remember that "with great power comes great
+responsibility". Signed: Your Friendly Neighborhood Spidey.
+* Returned values
+Ok let's have more fun:
+
+#+begin_export html
+<pyprez-editor>
+def more(x):
+    return x + 1
+
+print(more(2))
+</pyprez-editor>
+#+end_export
+the return keyword can be used to return a value but also to
+exit the algorithm prematurely id needed
+
+
+#+begin_export html
+<pyprez-editor>
+def explain(interest):
+    if interest <= 0:
+        return "ok"
+    return "let's define a function"
+
+print(explain(-1))
+</pyprez-editor>
+#+end_export
+
+be aware that all python function return a value, even if no return statement is
+used; in the event of an exit without explicitly returning a value, the ~None~
+value is returned
+
+#+begin_export html
+<pyprez-editor>
+def weird(value):
+    if value <= 0:
+        return "ok"
+
+print(weird(100))
+</pyprez-editor>
+#+end_export
+
+* Variable scope in functions
+when assigning a value to a variable in a function body the variable is declared
+in the current scope so the value does not change the value of variables
+declared outside
+
+* Environments
+* Optional values
+* Named input parameters
+* Variadic arguments
+* Keyword arguments
+* Mandatory keywords
+* Recursive functions
+* Closures

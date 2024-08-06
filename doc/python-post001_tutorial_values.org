@@ -7,7 +7,7 @@
 #+DESCRIPTION: how are values created in the source code of python, how to create basic expressions and use basic containers
 #+title: Python tutorial: literals, values, operators and expressions
 
-https:/noise/wp-content/uploads/2023/08/david-clode-5uU8HSpfwkI-unsplash-2-scaled.jpg
+file:david-clode-5uU8HSpfwkI-unsplash-reduced.jpg
 
 Photo by [[https://unsplash.com/@davidclode?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText][David Clode]] on [[https://unsplash.com/photos/5uU8HSpfwkI?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText][Unsplash]]
 
@@ -202,3 +202,5 @@ considered "True"
 
 I don't recommend using this way to evaluate clauses as they may be less
 readable.
+
+# david-clode-5uU8HSpfwkI-unsplash-reduced.jpg https://noiseonthenet.space/noise/wp-content/uploads/2024/03/david-clode-5uU8HSpfwkI-unsplash-reduced-2.jpg
